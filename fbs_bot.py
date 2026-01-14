@@ -483,7 +483,8 @@ def format_day_schedule(d, user_id=None):
     if not day_schedule:
         return header + "Пар немає ✅"
 
-    lines = [header]
+        lines = [header]
+    has_pairs = False  # <-- ДОБАВЬТЕ ЭТО
     
     # Проверяем организационную часов (org поле)
     org = day_schedule.get("org")
@@ -497,6 +498,7 @@ def format_day_schedule(d, user_id=None):
             lines[-1] += f" ({room})"
         if teacher:
             lines[-1] += f" — {teacher}"
+        has_pairs = True  # <-- СЧИТАЕМ org как пару
     
     for pair_str in sorted(day_schedule.keys(), key=lambda x: int(x) if x.isdigit() else 0):
         if pair_str == "org":
@@ -518,9 +520,10 @@ def format_day_schedule(d, user_id=None):
         if teacher:
             line += f" — {teacher}"
         lines.append(line)
+        has_pairs = True  # <-- ЕСЛИ ЕСТЬ ОБЫЧНЫЕ ПАРЫ
 
-        # Если в lines только заголовок (и org не был добавлен как пара)
-    if len(lines) == 1:
+    # Если в lines только заголовок (и org не был добавлен как пара)
+    if not has_pairs and len(lines) == 1:
         lines.append("Пар немає ✅")
         
     return "\n".join(lines)
