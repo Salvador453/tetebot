@@ -32,7 +32,7 @@ try:
 except Exception as e:
     print("Ошибка при удалении webhook:", e)
 
-MAIN_ADMIN_ID = 1509389908, 5425456667
+MAIN_ADMIN_ID = 1509389908
 ADMIN_IDS = {1509389908, 5425456667}
 
 # ФИКСИРУЕМ ОШИБКУ: неделя 02.01.2026 - знаменник, следующая неделя - чисельник
@@ -51,7 +51,7 @@ BELL_SCHEDULE = {
         1: "08:30–09:50",
         2: "10:00–11:20",
         3: "11:50–13:10",
-        4: "13:20–13:50",
+        4: "13:20–13:50",  # Организационная часов
         5: "14:00–15:20",
     },
     "other": {
@@ -98,6 +98,7 @@ def create_schedule_fbs():
                 "1": {"subject": "", "room": "", "teacher": ""},
                 "2": {"subject": "Фізична культура", "room": "с/з № 2", "teacher": "Матєщук В.В."},
                 "3": {"subject": "Інформатика", "room": "239", "teacher": "Короленко / Єреп"},
+                "org": {"subject": "Організаційна година", "room": "225", "teacher": "Почшарьова Т.В."},
                 "4": {"subject": "Українська мова", "room": "115", "teacher": "Лосєва К.С."},
             },
             "знаменник": {
@@ -175,6 +176,7 @@ def create_schedule_m():
                 "1": {"subject": "Фізична культура", "room": "с/з № 2", "teacher": "Матещук В.В."},
                 "2": {"subject": "Історія України", "room": "114", "teacher": "Мелещук Ю.Д."},
                 "3": {"subject": "Захист України", "room": "242 / 201", "teacher": "Санко / Киянчук"},
+                "org": {"subject": "Організаційна година", "room": "225", "teacher": "Почтарьова Т.В."},
                 "4": {"subject": "", "room": "", "teacher": ""},
             },
             "знаменник": {
@@ -321,39 +323,40 @@ holidays = load_holidays()
 # ================== ФИКСИРОВАННЫЕ ССЫЛКИ НА MEET ==================
 # Ссылки для группы ФБС-25
 MEET_LINKS_FBS = {
-    "Українська мова": "https://meet.google.com/omn-zozu-svf",
-    "Українська література": "https://meet.google.com/ewt-ajnc-yud",
-    "Історія України": "https://meet.google.com/tpt-hgui-evw",
-    "Всесвітня історія": "https://meet.google.com/yth-isxz-dkz",
-    "Громадянська освіта": "https://meet.google.com/kjg-jtwn-eeb",
-    "Географія": "https://meet.google.com/toy-knhy-eom",
-    "Інформатика": "https://meet.google.com/dye-wsib-brz",
-    "Технології": "https://meet.google.com/vdd-knmu-btf",
-    "Біологія і екологія": "https://meet.google.com/vjo-rgus-tdg",
-    "Хімія": "https://meet.google.com/evt-wnzk-kxt",
-    "Захист України": "https://meet.google.com/zvv-qstt-ytk",
-    "Фізична культура": "https://meet.google.com/etr-xhvt-dhc",
-    "Математика": "https://meet.google.com/ggu-tkge-xnb",
-    "Фізика і астрономія": "https://meet.google.com/vmv-fcvt-zor"
+    "Українська мова": "https://meet.google.com/omn-zozu-svf ",
+    "Українська література": "https://meet.google.com/ewt-ajnc-yud ",
+    "Історія України": "https://meet.google.com/tpt-hgui-evw ",
+    "Всесвітня історія": "https://meet.google.com/yth-isxz-dkz ",
+    "Громадянська освіта": "https://meet.google.com/kjg-jtwn-eeb ",
+    "Географія": "https://meet.google.com/toy-knhy-eom ",
+    "Інформатика": "https://meet.google.com/dye-wsib-brz ",
+    "Технології": "https://meet.google.com/vdd-knmu-btf ",
+    "Біологія і екологія": "https://meet.google.com/vjo-rgus-tdg ",
+    "Хімія": "https://meet.google.com/evt-wnzk-kxt ",
+    "Захист України": "https://meet.google.com/zvv-qstt-ytk ",
+    "Фізична культура": "https://meet.google.com/etr-xhvt-dhc ",
+    "Математика": "https://meet.google.com/ggu-tkge-xnb ",
+    "Фізика і астрономія": "https://meet.google.com/vmv-fcvt-zor ",
+    "Організаційна година": "https://meet.google.com/hcs-snii-tsq "
 }
 
 # Ссылки для группы М-25
 MEET_LINKS_M = {
-    "Інформатика": "https://meet.google.com/vrg-aser-pmx",
-    "Захист України Сапко": "https://meet.google.com/vdg-qnen-dyb",
-    "Захист України Киящук": "https://meet.google.com/kvw-zrmf-nah",
-    "Громадянська освіта": "https://meet.google.com/zna-xgac-epz",
-    "Фізична культура": "https://meet.google.com/rsz-bwhb-qjp",
-    "Хімія": "https://meet.google.com/vdd-kmnq-qhk",
-    "Біологія і екологія": "https://meet.google.com/xgz-wnhy-swi",
-    "Українська література": "https://meet.google.com/uih-fzeh-zqk",
-    "Українська мова": "https://meet.google.com/qdd-kdkr-oum",
-    "Математика": "https://meet.google.com/rcs-cpcq-hfr",
-    "Фізика і астрономія": "https://meet.google.com/vjo-ezcm-rfy",
-    "Історія України": "https://meet.google.com/ygc-zisg-ita",
-    "Всесвітня історія": "https://meet.google.com/aek-wwti-xxz",
-    "Організаційна година": "https://meet.google.com/hcs-snii-tsq",
-    "Географія": "https://meet.google.com/sbd-mtrb-tcm"
+    "Інформатика": "https://meet.google.com/vrg-aser-pmx ",
+    "Захист України Сапко": "https://meet.google.com/vdg-qnen-dyb ",
+    "Захист України Киящук": "https://meet.google.com/kvw-zrmf-nah ",
+    "Громадянська освіта": "https://meet.google.com/zna-xgac-epz ",
+    "Фізична культура": "https://meet.google.com/rsz-bwhb-qjp ",
+    "Хімія": "https://meet.google.com/vdd-kmnq-qhk ",
+    "Біологія і екологія": "https://meet.google.com/xgz-wnhy-swi ",
+    "Українська література": "https://meet.google.com/uih-fzeh-zqk ",
+    "Українська мова": "https://meet.google.com/qdd-kdkr-oum ",
+    "Математика": "https://meet.google.com/rcs-cpcq-hfr ",
+    "Фізика і астрономія": "https://meet.google.com/vjo-ezcm-rfy ",
+    "Історія України": "https://meet.google.com/ygc-zisg-ita ",
+    "Всесвітня історія": "https://meet.google.com/aek-wwti-xxz ",
+    "Організаційна година": "https://meet.google.com/hcs-snii-tsq ",
+    "Географія": "https://meet.google.com/sbd-mtrb-tcm "
 }
 
 def get_meet_links_for_group(group):
@@ -496,7 +499,23 @@ def format_day_schedule(d, user_id=None):
         return header + "Пар немає ✅"
 
     lines = [header]
-    for pair_str in sorted(day_schedule.keys(), key=lambda x: int(x)):
+    
+    # Проверяем организационную часов (org поле)
+    org = day_schedule.get("org")
+    if org:
+        time_txt = "13:20–13:50"
+        subj = org.get("subject", "Організаційна година")
+        room = org.get("room", "")
+        teacher = org.get("teacher", "")
+        lines.append(f"🔸 {time_txt} — {subj}")
+        if room:
+            lines[-1] += f" ({room})"
+        if teacher:
+            lines[-1] += f" — {teacher}"
+    
+    for pair_str in sorted(day_schedule.keys(), key=lambda x: int(x) if x.isdigit() else 0):
+        if pair_str == "org":
+            continue
         pair_num = int(pair_str)
         pair = day_schedule[pair_str]
         subj = pair.get("subject", "—")
@@ -533,7 +552,18 @@ def build_day_markup(d, user_id=None):
     markup = InlineKeyboardMarkup(row_width=1)
     has_buttons = False
 
-    for pair_str in sorted(day_schedule.keys(), key=lambda x: int(x)):
+    # Добавляем кнопку для организационной часов org (отдельно от обычных пар)
+    org = day_schedule.get("org")
+    if org:
+        subj = org.get("subject", "Організаційна година")
+        url = get_meet_link_for_subject(group, subj)
+        if url:
+            markup.add(InlineKeyboardButton(text=f"🔸 {subj}", url=url))
+            has_buttons = True
+
+    for pair_str in sorted(day_schedule.keys(), key=lambda x: int(x) if x.isdigit() else 0):
+        if pair_str == "org":
+            continue
         pair_num = int(pair_str)
         pair = day_schedule[pair_str]
         subj = pair.get("subject", "—")
@@ -597,7 +627,22 @@ def format_full_schedule_for_user(user_id):
             if not day_schedule:
                 lines.append("    — немає пар")
             else:
-                for pair_str in sorted(day_schedule.keys(), key=lambda x: int(x)):
+                # Проверяем организационную часов (org поле)
+                org = day_schedule.get("org")
+                if org:
+                    time_txt = "13:20–13:50"
+                    subj = org.get("subject", "Організаційна година")
+                    room = org.get("room", "")
+                    teacher = org.get("teacher", "")
+                    lines.append(f"    🔸 {time_txt} — {subj}")
+                    if room:
+                        lines[-1] += f" ({room})"
+                    if teacher:
+                        lines[-1] += f" — {teacher}"
+                
+                for pair_str in sorted(day_schedule.keys(), key=lambda x: int(x) if x.isdigit() else 0):
+                    if pair_str == "org":
+                        continue
                     pair_num = int(pair_str)
                     pair = day_schedule[pair_str]
                     subj = pair.get("subject", "—")
@@ -820,11 +865,36 @@ def now_cmd(message):
     
     now = datetime.utcnow() + timedelta(hours=2)
     d = now.date()
+    group_name = get_user_group(message.from_user.id)
     day_key, used_week_type, day_schedule, _ = get_day_struct(d, message.from_user.id)
 
     if not day_schedule:
         bot.reply_to(message, "Сьогодні пар немає ✅")
         return
+
+    # Проверяем организационную часов (org поле)
+    org = day_schedule.get("org")
+    if org:
+        start_dt = datetime(d.year, d.month, d.day, 13, 20)
+        end_dt = datetime(d.year, d.month, d.day, 13, 50)
+        if start_dt <= now <= end_dt:
+            subj = org.get('subject', 'Організаційна година')
+            room = org.get('room', '')
+            teacher = org.get('teacher', '')
+            text = f"Зараз йде організаційна година:\n13:20-13:50 — {subj}"
+            if room:
+                text += f" ({room})"
+            if teacher:
+                text += f" — {teacher}"
+            
+            markup = None
+            url = get_meet_link_for_subject(group_name, subj)
+            if url:
+                markup = InlineKeyboardMarkup()
+                markup.add(InlineKeyboardButton(text="Увійти в Google Meet", url=url))
+            
+            bot.reply_to(message, text, reply_markup=markup)
+            return
 
     current_pair = None
     for pair_str, pair in day_schedule.items():
@@ -832,24 +902,19 @@ def now_cmd(message):
             pair_num = int(pair_str)
         except ValueError:
             continue
-
         if is_empty_pair(pair):
             continue
-
         time_txt = get_pair_time(day_key, pair_num)
         if not time_txt:
             continue
-
         try:
             start_str, end_str = time_txt.split("–")
             sh, sm = map(int, start_str.split(":"))
             eh, em = map(int, end_str.split(":"))
         except Exception:
             continue
-
         start_dt = datetime(d.year, d.month, d.day, sh, sm)
         end_dt = datetime(d.year, d.month, d.day, eh, em)
-
         if start_dt <= now <= end_dt:
             current_pair = (pair_num, pair, time_txt)
             break
@@ -862,22 +927,19 @@ def now_cmd(message):
     subj = pair.get("subject", "—")
     room = pair.get("room", "")
     teacher = pair.get("teacher", "")
-
     text = f"Зараз йде пара:\n{pair_num}) {time_txt} — {subj}"
     if room:
         text += f" ({room})"
     if teacher:
         text += f" — {teacher}"
 
-    group = get_user_group(message.from_user.id)
     subj_norm = subj.strip().lower()
     markup = None
-
     if "захист україни" in subj_norm:
         markup = InlineKeyboardMarkup(row_width=1)
-        links = get_meet_links_for_group(group)
+        links = get_meet_links_for_group(group_name)
         
-        if group == "М-25":
+        if group_name == "М-25":
             sapko_url = links.get("Захист України Сапко")
             kiyashchuk_url = links.get("Захист України Киящук")
             if sapko_url:
@@ -889,7 +951,7 @@ def now_cmd(message):
             if url:
                 markup.add(InlineKeyboardButton(text="Захист України", url=url))
     else:
-        url = get_meet_link_for_subject(group, subj)
+        url = get_meet_link_for_subject(group_name, subj)
         if url:
             markup = InlineKeyboardMarkup()
             markup.add(InlineKeyboardButton(text="Увійти в Google Meet", url=url))
@@ -912,11 +974,35 @@ def next_cmd(message):
     
     now = datetime.utcnow() + timedelta(hours=2)
     d = now.date()
+    group_name = get_user_group(message.from_user.id)
     day_key, used_week_type, day_schedule, _ = get_day_struct(d, message.from_user.id)
 
     if not day_schedule:
         bot.reply_to(message, "Сьогодні пар немає ✅")
         return
+
+    # Проверяем организационную часов (org поле)
+    org = day_schedule.get("org")
+    if org:
+        start_dt = datetime(d.year, d.month, d.day, 13, 20)
+        if start_dt > now:
+            subj = org.get('subject', 'Організаційна година')
+            room = org.get('room', '')
+            teacher = org.get('teacher', '')
+            text = f"Наступна подія: організаційна година\n13:20-13:50 — {subj}"
+            if room:
+                text += f" ({room})"
+            if teacher:
+                text += f" — {teacher}"
+            
+            markup = None
+            url = get_meet_link_for_subject(group_name, subj)
+            if url:
+                markup = InlineKeyboardMarkup()
+                markup.add(InlineKeyboardButton(text="Увійти в Google Meet", url=url))
+            
+            bot.reply_to(message, text, reply_markup=markup)
+            return
 
     next_pair = None
     for pair_str, pair in sorted(day_schedule.items(), key=lambda x: int(x[0])):
@@ -924,20 +1010,16 @@ def next_cmd(message):
             pair_num = int(pair_str)
         except ValueError:
             continue
-
         if is_empty_pair(pair):
             continue
-
         time_txt = get_pair_time(day_key, pair_num)
         if not time_txt:
             continue
-
         try:
             start_str, end_str = time_txt.split("–")
             sh, sm = map(int, start_str.split(":"))
         except Exception:
             continue
-
         start_dt = datetime(d.year, d.month, d.day, sh, sm)
         if start_dt > now:
             next_pair = (pair_num, pair, time_txt)
@@ -951,29 +1033,26 @@ def next_cmd(message):
     subj = pair.get("subject", "—")
     room = pair.get("room", "")
     teacher = pair.get("teacher", "")
-
     text = f"Наступна пара:\n{pair_num}) {time_txt} — {subj}"
     if room:
         text += f" ({room})"
     if teacher:
         text += f" — {teacher}"
 
-    group = get_user_group(message.from_user.id)
     subj_norm = subj.strip().lower()
     markup = None
-
     if "захист україни" in subj_norm:
         markup = InlineKeyboardMarkup(row_width=1)
-        links = get_meet_links_for_group(group)
+        links = get_meet_links_for_group(group_name)
         
-        if group == "М-25":
+        if group_name == "М-25":
             sapko_url = links.get("Захист України Сапко")
             kiyashchuk_url = links.get("Захист України Киящук")
             if sapko_url:
                 markup.add(InlineKeyboardButton(text="Захист України — Сапко", url=sapko_url))
                 text += f"\n🔗 Meet (Сапко): {sapko_url}"
             if kiyashchuk_url:
-                markup.add(InlineKeyboardButton(text="Захист України — Киящук", url=kiyashchuk_url))
+                markup.add(InlineKeyboardButton(text="Захист України — Киящук", url=kiyashчук_url))
                 text += f"\n🔗 Meet (Киящук): {kiyashchuk_url}"
         else:
             url = links.get("Захист України")
@@ -981,7 +1060,7 @@ def next_cmd(message):
                 markup.add(InlineKeyboardButton(text="Захист України", url=url))
                 text += f"\n🔗 Meet: {url}"
     else:
-        url = get_meet_link_for_subject(group, subj)
+        url = get_meet_link_for_subject(group_name, subj)
         if url:
             markup = InlineKeyboardMarkup()
             markup.add(InlineKeyboardButton(text="Увійти в Google Meet", url=url))
@@ -1003,7 +1082,7 @@ def wont_cmd(message):
             "• Потім пари: 1, 2, 3, 4, 5 (можна '1й', '2 і 3 пару' тощо)\n\n"
             "Приклади:\n"
             "/wont Давиташвили Илля мене не буде в середу на 1й і 4 парі\n"
-            "/wont Давиташвили Илля завтра не буду на 2 і 3 парі бо/потому що хворію"
+            "/wont Давиташвили Илля завтра не буду на 2 і 3 парі бо/потому что хворію"
         )
         return
 
@@ -1091,7 +1170,7 @@ def wont_cmd(message):
 
     # Извлекаем ФИО
     tokens = rest.split()
-    tokens_lower = rest_lower.split()
+    tokens_lower = rest.lower().split()
     stopwords = {"меня", "мене", "мне", "мені", "я", "не", "у", "в"}
     relative_days = {"сьогодні", "сегодня", "today", "завтра", "tomorrow", "післязавтра", "послезавтра"}
     
@@ -1669,7 +1748,6 @@ def whois_cmd(message):
         group = info.get("group") or "Не вибрана"
         last_seen = info.get("last_seen", "")
         user_id_int = int(uid)
-
         user_abs = [r for r in absences if r.get("sender_id") == user_id_int]
         total_wont = len(user_abs)
 
@@ -1699,7 +1777,6 @@ def whois_cmd(message):
             lines.append(
                 f"Останній /wont: {dt_str}, {day_name}, пара {pair_num}, причина: {reason}"
             )
-
         lines.append("")
 
     bot.reply_to(message, "\n".join(lines))
@@ -1710,10 +1787,8 @@ notified_pairs = {}
 def send_pair_notification(pair_key, pair_num, pair, day_key, user_id):
     if is_empty_pair(pair):
         return
-
     if holidays["is_holiday"]:
         return
-
     group = get_user_group(user_id)
     if not group:
         return
@@ -1731,7 +1806,6 @@ def send_pair_notification(pair_key, pair_num, pair, day_key, user_id):
 
     subj_norm = subj.strip().lower()
     markup = None
-
     if "захист україни" in subj_norm:
         markup = InlineKeyboardMarkup(row_width=1)
         links = get_meet_links_for_group(group)
@@ -1758,6 +1832,32 @@ def send_pair_notification(pair_key, pair_num, pair, day_key, user_id):
         print(f"Уведомление отправлено пользователю {user_id} для пары {pair_key}")
     except Exception as e:
         print(f"Не зміг відправити нотіфікацію {user_id}: {e}")
+
+def send_org_notification(org_key, org, day_key, user_id):
+    """Отправка уведомления за 5 минут до организационной часов"""
+    group_name = get_user_group(user_id)
+    subj = org.get("subject", "Організаційна година")
+    room = org.get("room", "")
+    teacher = org.get("teacher", "")
+    
+    text = "Через ~5 хвилин організаційна година:\n"
+    text += f"13:20-13:50 — {subj}"
+    if room:
+        text += f" ({room})"
+    if teacher:
+        text += f" — {teacher}"
+    
+    markup = None
+    url = get_meet_link_for_subject(group_name, subj)
+    if url:
+        markup = InlineKeyboardMarkup()
+        markup.add(InlineKeyboardButton(text="Увійти в Google Meet", url=url))
+    
+    try:
+        bot.send_message(user_id, text, reply_markup=markup)
+        print(f"Отправлено уведомление об орг час для {user_id}")
+    except Exception as e:
+        print(f"Не зміг відправити нотіфікацію орг.години {user_id}: {e}")
 
 def cleanup_old_notifications():
     """Очистка старых уведомлений (старше 1 часа)"""
@@ -1798,44 +1898,49 @@ def notifications_loop():
                 day_schedule = group_schedule.get(day_key, {}).get(week_type, {})
                 if not day_schedule:
                     continue
-
+                
+                # Проверяем организационную часов (org поле)
+                org = day_schedule.get("org")
+                if org:
+                    start_dt = datetime(d.year, d.month, d.day, 13, 20)
+                    delta_sec = (start_dt - now).total_seconds()
+                    if 240 <= delta_sec <= 300:  # За 5-4 минуты
+                        org_key = f"{d.isoformat()}_{group_name}_org"
+                        if org_key not in notified_pairs:
+                            print(f"Отправляю уведомление для организационной {org_key}")
+                            for uid_str, user_info in users.items():
+                                if user_info.get("group") == group_name:
+                                    send_org_notification(org_key, org, day_key, int(uid_str))
+                                    notified_pairs[org_key] = time.time()
+                
+                # Проверяем обычные пары
                 for pair_str, pair in day_schedule.items():
+                    if pair_str == "org":
+                        continue
                     try:
                         pair_num = int(pair_str)
                     except ValueError:
                         continue
-
                     if is_empty_pair(pair):
                         continue
-
                     time_txt = get_pair_time(day_key, pair_num)
                     if not time_txt:
                         continue
-
                     start_str = time_txt.split("–")[0]
                     try:
                         hh, mm = map(int, start_str.split(":"))
                     except Exception:
                         continue
-
                     pair_dt = datetime(d.year, d.month, d.day, hh, mm)
                     delta_sec = (pair_dt - now).total_seconds()
-
-                    # Отправляем уведомление за 5-4 минуты до пары
-                    if 240 <= delta_sec <= 300:
-                        # Для каждого пользователя этой группы
-                        for uid_str, user_info in users.items():
-                            if user_info.get("group") == group_name:
-                                user_id = int(uid_str)
-                                # Создаем уникальный ключ для каждого пользователя и пары
-                                key = f"{d.isoformat()}_{group_name}_{pair_str}_{user_id}"
-                                
-                                # Проверяем, не отправляли ли уже уведомление
-                                if key not in notified_pairs:
-                                    print(f"Отправляю уведомление для пары {key}")
-                                    send_pair_notification(key, pair_num, pair, day_key, user_id)
-                                    notified_pairs[key] = time.time()  # Запоминаем время отправки
-
+                    if 240 <= delta_sec <= 300:  # За 5-4 минуты
+                        key = f"{d.isoformat()}_{group_name}_{pair_str}"
+                        if key not in notified_pairs:
+                            print(f"Отправляю уведомление для пары {key}")
+                            for uid_str, user_info in users.items():
+                                if user_info.get("group") == group_name:
+                                    send_pair_notification(key, pair_num, pair, day_key, int(uid_str))
+                                    notified_pairs[key] = time.time()
         except Exception as e:
             print("Ошибка в notifications_loop:", e)
 
