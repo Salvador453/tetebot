@@ -519,6 +519,7 @@ def format_day_schedule(d, user_id=None):
             line += f" — {teacher}"
         lines.append(line)
 
+        # Если в lines только заголовок (и org не был добавлен как пара)
     if len(lines) == 1:
         lines.append("Пар немає ✅")
         
