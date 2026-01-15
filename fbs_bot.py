@@ -320,6 +320,8 @@ holidays = load_holidays()
 # ================== ФИКСИРОВАННЫЕ ССЫЛКИ НА MEET ==================
 MEET_LINKS_FBS = {
     "Українська мова": "https://meet.google.com/omn-zozu-svf ",
+    "Зарубіжна література": "https://meet.google.com/qdr-vdor-nmo ",
+    "Іноземна мова": "https://meet.google.com/cwk-incq-jip ",
     "Українська література": "https://meet.google.com/ewt-ajnc-yud ",
     "Історія України": "https://meet.google.com/tpt-hgui-evw ",
     "Всесвітня історія": "https://meet.google.com/yth-isxz-dkz ",
@@ -338,6 +340,8 @@ MEET_LINKS_FBS = {
 
 MEET_LINKS_M = {
     "Інформатика": "https://meet.google.com/vrg-aser-pmx ",
+    "Іноземна мова": "https://meet.google.com/qiv-bpqi-vvi ",
+    "Зарубіжна література": "https://meet.google.com/fkp-rptj-dww ",
     "Захист України Сапко": "https://meet.google.com/vdg-qnen-dyb ",
     "Захист України Киящук": "https://meet.google.com/kvw-zrmf-nah ",
     "Громадянська освіта": "https://meet.google.com/zna-xgac-epz ",
